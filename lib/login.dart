@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'forgot.dart';
-import 'signup.dart';
+import 'home.dart';
 
 class MyLoginPage extends StatefulWidget {
   MyLoginPage({Key key, this.title}) : super(key: key);
@@ -78,7 +78,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     ),
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => MySignupPage()));
+                          builder: (context) => MyHomePage()));
                     },
                     child: Text(
                       'LOG IN',
