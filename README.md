@@ -1,6 +1,6 @@
 # iot_meetup_app
 
-A new Flutter project.
+IoT Network Hub community meetup app
 
 ## Getting Started
 
