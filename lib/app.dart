@@ -38,5 +38,29 @@ ThemeData _buildIoTTheme() {
   return base.copyWith(
     accentColor: kIoTsecondaryColor,
     primaryColor: kIoTprimaryColor,
+    buttonTheme: base.buttonTheme.copyWith(
+      buttonColor: kIoTsecondaryColor,
+      textTheme: ButtonTextTheme.normal,
+    ),
+    scaffoldBackgroundColor: kIoTBackgroundColor,
+    textTheme: _buildIoTTextTheme(base.textTheme),
+    primaryTextTheme: _buildIoTTextTheme(base.primaryTextTheme),
+    accentTextTheme: _buildIoTTextTheme(base.accentTextTheme),
   );
+}
+
+TextTheme _buildIoTTextTheme(TextTheme base) {
+  return base
+      .copyWith(
+        headline: base.headline.copyWith(
+          fontWeight: FontWeight.w500,
+        ),
+        title: base.title.copyWith(
+          fontSize: 18.0,
+        ),
+      )
+      .apply(
+        fontFamily: 'Rubik',
+        displayColor: kIoTsecondaryTextColor,
+      );
 }

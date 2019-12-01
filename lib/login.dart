@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:iot_meetup_app/signup.dart';
 
 import 'forgot.dart';
 import 'home.dart';
+import 'carousel_slider.dart';
 
 class MyLoginPage extends StatefulWidget {
   MyLoginPage({Key key, this.title}) : super(key: key);
@@ -15,8 +17,11 @@ class MyLoginPage extends StatefulWidget {
 class _MyLoginPageState extends State<MyLoginPage> {
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Stack(
+        alignment: AlignmentDirectional.center,
         children: <Widget>[
           Container(
             child: Column(
@@ -41,6 +46,15 @@ class _MyLoginPageState extends State<MyLoginPage> {
             ),
           ),
           Container(
+            padding: EdgeInsets.only(bottom: 128.0, left: 64.0, right: 64.0),
+            height: screenHeight / 2,
+            width: screenWidth,
+            child: CarouselPro(),
+          ),
+          SizedBox(
+            height: 48.0,
+          ),
+          Container(
             padding: EdgeInsets.symmetric(horizontal: 24.0),
             alignment: Alignment.bottomCenter,
             child: Column(
@@ -57,6 +71,9 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 8.0,
+                ),
                 Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
@@ -66,7 +83,11 @@ class _MyLoginPageState extends State<MyLoginPage> {
                       filled: true,
                       labelText: 'Password',
                     ),
+                    obscureText: true,
                   ),
+                ),
+                SizedBox(
+                  height: 8.0,
                 ),
                 SizedBox(
                   width: 355,
@@ -77,7 +98,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                       borderRadius: BorderRadius.zero,
                     ),
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
+                      Navigator.of(context).pop(MaterialPageRoute(
                           builder: (context) => MyHomePage()));
                     },
                     child: Text(
@@ -88,13 +109,18 @@ class _MyLoginPageState extends State<MyLoginPage> {
                 ),
                 FlatButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => MyForgotPage()));
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => MyForgotPage()),
+                    );
                   },
                   child: Text('Forgot password? request for a new one'),
                 ),
                 FlatButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => MySignupPage()),
+                    );
+                  },
                   child: Text('Don\'t have an account? sign up'),
                 )
               ],
